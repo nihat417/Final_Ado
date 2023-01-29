@@ -28,6 +28,7 @@ public partial class MainWindow : Window
     SqlConnection? conn = null;
     SqlDataReader? reader = null;
     DataTable? table = null;
+    SqlTransaction? transaction = null;
 
     SqlCommandBuilder? builder = null;
     DataSet? dataset = null;
@@ -231,6 +232,8 @@ public partial class MainWindow : Window
         adapter.SelectCommand.CommandText = "SELECT Id,Products.[Name],Price,Products.Quantitiy\r\nFROM Products";
     }
 
-
-
+    private void Add_Btn_Click(object sender, RoutedEventArgs e)
+    {
+        
+    }
 }

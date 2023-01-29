@@ -1,0 +1,102 @@
+﻿<Window x:Class="WpfApp1.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="AddWindow" 
+        Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Label Content="id"
+               Background="Black"
+               Foreground="White"
+               Width="35" 
+               Margin="244,17,521,103"/>
+
+        <TextBox Grid.Row="0"
+                 x:Name="idtxt" 
+                 Height="30" 
+                 Width="220" Margin="30,0,0,90"
+                 Background="Aquamarine">
+        </TextBox>
+        <TextBox Grid.Row="0"
+            x:Name="Nametxt" 
+            Height="30" 
+            Width="220" 
+            Margin="30,0,0,20"
+            Background="Aquamarine"/>
+
+        <TextBox Grid.Row="0"
+            x:Name="categoryidtxt" 
+            Height="30" 
+            Width="220" 
+            Margin="30,0,0,-50"
+            Background="Aquamarine"/>
+
+        <TextBox Grid.Row="0"
+            x:Name="pricetxt" 
+            Height="30" 
+            Width="220" 
+            Margin="30,0,0,-120"
+            Background="Aquamarine"/>
+
+        <TextBox Grid.Row="0"
+            x:Name="Quantitytxt" 
+            Height="30" 
+            Width="220" 
+            Margin="30,0,0,-190"
+            Background="Aquamarine"/>
+
+        <Button Height="20"
+                Width="60"
+                Content="Add"
+                Grid.Row="1" Click="Button_Click">
+        </Button>
+
+        <Button Height="20"
+                Width="60"
+                Content="cancel"
+                Grid.Row="1" 
+                Margin="455,62,285,62">
+
+        </Button>
+        <Label Content="name"
+            Background="Black"
+            Foreground="White"
+            Width="35" 
+            Margin="244,50,521,70"/>
+        <Label Content="categoryid"
+            Background="Black"
+            Foreground="White" 
+            Margin="226,88,508,33"/>
+        <Label Content="price"
+            Background="Black"
+            Foreground="White"
+            Width="35" 
+            Margin="244,123,521,142" Grid.RowSpan="2"/>
+        <Label Content="quantity"
+            Background="Black"
+            Foreground="White"
+            Width="35" 
+            Margin="244,10,521,109" Grid.Row="1"/>
+        <TextBox Grid.Row="1"
+            x:Name="Raitingtxt" 
+            Height="30" 
+            Width="220" 
+            Margin="302,92,278,22"
+            Background="Aquamarine"/>
+        <Label Content="raitingId"
+            Background="Black"
+            Foreground="White"
+            Width="35" 
+            Margin="242,94,524,25" Grid.Row="1"/>
+    </Grid>
+</Window>

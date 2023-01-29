@@ -18,6 +18,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -34,6 +35,12 @@
                        Background="Azure"
                        Foreground="Black">
             </TextBox>
+
+            <Button x:Name="Add_Btn"
+                    Grid.Row="2"
+                    Content="Add"
+                    Click="Add_Btn_Click">
+            </Button>
         </Grid>
 
 
