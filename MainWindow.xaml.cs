@@ -26,11 +26,10 @@ public partial class MainWindow : Window
     IConfigurationRoot? configurationRoot=null;
     string? conStr = string.Empty;
     SqlConnection? conn = null;
+
     SqlDataReader? reader = null;
     DataTable? table = null;
-    SqlTransaction? transaction = null;
 
-    SqlCommandBuilder? builder = null;
     DataSet? dataset = null;
     SqlDataAdapter? adapter = null;
 
@@ -60,7 +59,7 @@ public partial class MainWindow : Window
         {
             await conn.OpenAsync();
             MessageBox.Show("plese wait 5 second products loaded");
-            string selcommand = "SELECT Id,Products.[Name],Price,Products.Quantitiy\r\nFROM Products";
+            string selcommand = "SELECT Id,Products.[Name],Price,Products.Quantity\r\nFROM Products";
 
             SqlCommand cmd=conn.CreateCommand();
             cmd.CommandText = "WAITFOR DELAY '00:00:03';";
@@ -161,7 +160,7 @@ public partial class MainWindow : Window
         try
         {
             await conn?.OpenAsync();
-            string selcom = @"SELECT Products.[Name],Products.Price,Products.Quantitiy
+            string selcom = @"SELECT Products.[Name],Products.Price,Products.Quantity
                               From Products
                               JOIN Categories ON CategoryId=Categories.id
                               WHERE Categories.Name=@p1";
@@ -229,7 +228,7 @@ public partial class MainWindow : Window
         {
             Gridviev1.ItemsSource = item.AsDataView();
         }
-        adapter.SelectCommand.CommandText = "SELECT Id,Products.[Name],Price,Products.Quantitiy\r\nFROM Products";
+        adapter.SelectCommand.CommandText = "SELECT Id,Products.[Name],Price,Products.Quantity\r\nFROM Products";
     }
 
     private void Add_Btn_Click(object sender, RoutedEventArgs e)
