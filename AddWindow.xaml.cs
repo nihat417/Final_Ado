@@ -58,16 +58,15 @@ public partial class AddWindow : Window
             transaction = conn.BeginTransaction();
 
             using SqlCommand command = conn.CreateCommand();
-            command.Transaction = transaction;
+            command.Transaction = transaction;     
 
-            
+            command.CommandText = @"INSERT INTO Products VALUES(@NameProduct,@Category,@Price,@Quantity,@Raiting)";
+            command.Parameters.AddWithValue("@NameProduct", Nametxt.Text.ToString());
+            command.Parameters.AddWithValue("@Category", Categorytxt.Text.ToString());
+            command.Parameters.AddWithValue("@Price", Pricetxt.Text.ToString());
+            command.Parameters.AddWithValue("@Quantity", Quantitytxt.Text.ToString());
+            command.Parameters.AddWithValue("@Raiting", Raitingtxt.Text.ToString());
 
-            command.CommandText = @"INSERT INTO TestTransaction VALUES('Emin', 14)";
-            command.ExecuteNonQuery();
-
-
-            // Bilərəkdən sehv edək ki, Transaction rollback olsun.
-            command.CommandText = @"INSERT INTO TestTransactionWRONG VALUES('Kənan', 19)";
             command.ExecuteNonQuery();
 
             transaction.Commit();
@@ -83,5 +82,13 @@ public partial class AddWindow : Window
         {
             conn?.Close();
         }
+    }
+
+    private void CancelButton_Click(object sender, RoutedEventArgs e)
+    {
+        //Add_Window.Visibility = Visibility.Hidden;
+        ////Add_Window.Close();
+        //MainWindow mainWindow= new MainWindow();
+        //mainWindow.Show();
     }
 }

@@ -5,98 +5,133 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
+        x:Name="Add_Window"
         Title="AddWindow" 
-        Height="450" Width="800">
+        Height="450" Width="600">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
 
+        <Label Grid.Row="0"
+               Content="Add Product Menu"
+               FontSize="45"
+               FontWeight="Bold"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Center">
+        </Label>
 
-        <Label Content="id"
-               Background="Black"
-               Foreground="White"
-               Width="35" 
-               Margin="244,17,521,103"/>
 
-        <TextBox Grid.Row="0"
-                 x:Name="idtxt" 
-                 Height="30" 
-                 Width="220" Margin="30,0,0,90"
-                 Background="Aquamarine">
-        </TextBox>
-        <TextBox Grid.Row="0"
-            x:Name="Nametxt" 
-            Height="30" 
-            Width="220" 
-            Margin="30,0,0,20"
-            Background="Aquamarine"/>
+        <Label Grid.Row="1"
+               Content="Name"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+        </Label>
 
-        <TextBox Grid.Row="0"
-            x:Name="categoryidtxt" 
-            Height="30" 
-            Width="220" 
-            Margin="30,0,0,-50"
-            Background="Aquamarine"/>
-
-        <TextBox Grid.Row="0"
-            x:Name="pricetxt" 
-            Height="30" 
-            Width="220" 
-            Margin="30,0,0,-120"
-            Background="Aquamarine"/>
-
-        <TextBox Grid.Row="0"
-            x:Name="Quantitytxt" 
-            Height="30" 
-            Width="220" 
-            Margin="30,0,0,-190"
-            Background="Aquamarine"/>
-
-        <Button Height="20"
-                Width="60"
-                Content="Add"
-                Grid.Row="1" Click="Button_Click">
-        </Button>
-
-        <Button Height="20"
-                Width="60"
-                Content="cancel"
-                Grid.Row="1" 
-                Margin="455,62,285,62">
-
-        </Button>
-        <Label Content="name"
-            Background="Black"
-            Foreground="White"
-            Width="35" 
-            Margin="244,50,521,70"/>
-        <Label Content="categoryid"
-            Background="Black"
-            Foreground="White" 
-            Margin="226,88,508,33"/>
-        <Label Content="price"
-            Background="Black"
-            Foreground="White"
-            Width="35" 
-            Margin="244,123,521,142" Grid.RowSpan="2"/>
-        <Label Content="quantity"
-            Background="Black"
-            Foreground="White"
-            Width="35" 
-            Margin="244,10,521,109" Grid.Row="1"/>
         <TextBox Grid.Row="1"
-            x:Name="Raitingtxt" 
-            Height="30" 
-            Width="220" 
-            Margin="302,92,278,22"
-            Background="Aquamarine"/>
-        <Label Content="raitingId"
-            Background="Black"
-            Foreground="White"
-            Width="35" 
-            Margin="242,94,524,25" Grid.Row="1"/>
+                 x:Name="Nametxt"
+                 Height="25"
+                 Width="265"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+        </TextBox>
+
+
+
+        <Label Grid.Row="2"
+               Content="Category"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+        </Label>
+
+        <TextBox Grid.Row="2"
+                 x:Name="Categorytxt"
+                 Height="25"
+                 Width="265"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+        </TextBox>
+
+
+        <Label Grid.Row="3"
+               Content="Price"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+        </Label>
+
+        <TextBox Grid.Row="3"
+                 x:Name="Pricetxt"
+                 Height="25"
+                 Width="265"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+        </TextBox>
+
+
+
+
+        <Label Grid.Row="4"
+               Content="Quantity"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+        </Label>
+
+        <TextBox Grid.Row="4"
+                 x:Name="Quantitytxt"
+                 Height="25"
+                 Width="265"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+        </TextBox>
+
+
+
+
+        <Label Grid.Row="5"
+               Content="Raiting"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+        </Label>
+
+        <TextBox Grid.Row="5"
+                 x:Name="Raitingtxt"
+                 Height="25"
+                 Width="265"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+        </TextBox>
+
+
+
+        <Button Grid.Row="6"
+                Content="Add"
+                FontSize="22"
+                Height="35"
+                Width="50"
+                Click="Button_Click">
+        </Button>
+
+
+        <Button Grid.Row="6"
+                Content="Cancel"
+                x:Name="CancelBtn"
+                FontSize="22"
+                Height="35"
+                Width="50"
+                HorizontalAlignment="Left"
+                Click="CancelButton_Click">
+        </Button>
+
     </Grid>
 </Window>
