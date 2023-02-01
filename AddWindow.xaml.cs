@@ -86,9 +86,8 @@ public partial class AddWindow : Window
 
     private void CancelButton_Click(object sender, RoutedEventArgs e)
     {
-        Window currentWindow = Application.Current.MainWindow;
-        currentWindow.Visibility = Visibility.Hidden;
-        MainWindow newWindow = new MainWindow();
-        newWindow.Show();
+        MainWindow mainWindow = new MainWindow();
+        Close();
+        mainWindow.Show();
     }
 }
