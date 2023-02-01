@@ -233,8 +233,10 @@ public partial class MainWindow : Window
 
     private void Add_Btn_Click(object sender, RoutedEventArgs e)
     {
-        //AddWindow newWindow = new AddWindow();
-        //newWindow.Show();
-        //MainWind.Close();
+        MainWindow currentWindow = (MainWindow)Application.Current.MainWindow;
+        currentWindow.Visibility = Visibility.Hidden;
+        AddWindow newWindow = new AddWindow();
+        newWindow.Show();
+        
     }
 }
