@@ -238,4 +238,32 @@ public partial class MainWindow : Window
         addWindow.Show();
         
     }
+
+    private void Gridviev1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        
+        var selectedItem = (sender as DataGrid).SelectedItem;
+        
+
+        if (selectedItem != null)
+        {
+            var rowView = selectedItem as DataRowView;
+            var data = rowView["Name"];
+            var data2 = rowView["Price"];
+
+            //MessageBox.Show(data.ToString());
+
+            OpenInfoWindow(data, data2);
+        }
+    }
+
+
+
+    private void OpenInfoWindow(object data,object data2)
+    {
+        InfoWindow infoWindow = new InfoWindow();
+        infoWindow._selectedItem = data;
+        infoWindow._selectedItem2 = data2;
+        infoWindow.ShowDialog();
+    }
 }

@@ -48,7 +48,8 @@
                   x:Name="Gridviev1"
                   Margin="22,22,10,22"
                   Background="Beige"
-                  Foreground="Black">
+                  Foreground="Black"
+                  MouseDoubleClick="Gridviev1_MouseDoubleClick">
         </DataGrid>
 
     </Grid>
