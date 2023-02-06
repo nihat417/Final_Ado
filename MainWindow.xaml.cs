@@ -256,14 +256,66 @@ public partial class MainWindow : Window
             OpenInfoWindow(data, data2);
         }
     }
-
-
-
     private void OpenInfoWindow(object data,object data2)
     {
         InfoWindow infoWindow = new InfoWindow();
         infoWindow._selectedItem = data;
         infoWindow._selectedItem2 = data2;
         infoWindow.ShowDialog();
+    }
+
+    private void Update_btn_Click(object sender, RoutedEventArgs e)
+    {
+        
+        SqlCommand updateCM = new SqlCommand()
+        {
+            //CommandText = "Update Products SET Name=@Name WHERE Name=@Name",
+            Connection = conn,
+            //CommandType = CommandType.StoredProcedure,
+        };
+        
+
+
+        
+
+        //updateCM.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int));
+        //updateCM.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar));
+        //updateCM.Parameters.Add(new SqlParameter("@CategoryId", SqlDbType.Int));
+        //updateCM.Parameters.Add(new SqlParameter("@Price", SqlDbType.Money));
+        //updateCM.Parameters.Add(new SqlParameter("@Quantity", SqlDbType.SmallInt));
+        //updateCM.Parameters.Add(new SqlParameter("@RatingId", SqlDbType.Int));
+
+
+        //updateCM.Parameters["@Id"].SourceVersion = DataRowVersion.Original;
+        //updateCM.Parameters["@Id"].SourceColumn = "Id";
+        //
+        //updateCM.Parameters["@Name"].SourceVersion = DataRowVersion.Current;
+        //updateCM.Parameters["@Name"].SourceColumn = "Name";
+
+        //updateCM.Parameters["@CategoryId"].SourceVersion = DataRowVersion.Current;
+        //updateCM.Parameters["@CategoryId"].SourceColumn = "CategoryId";
+
+        //updateCM.Parameters["@Price"].SourceVersion = DataRowVersion.Current;
+        //updateCM.Parameters["@Price"].SourceColumn = "Price";
+        //
+        //updateCM.Parameters["@Quantity"].SourceVersion = DataRowVersion.Current;
+        //updateCM.Parameters["@Quantity"].SourceColumn = "Quantity";
+
+        //updateCM.Parameters["@RatingId"].SourceVersion = DataRowVersion.Current;
+        //updateCM.Parameters["@RatingId"].SourceColumn = "RatingId";
+
+        adapter.UpdateCommand = updateCM;
+        SqlCommandBuilder updateCMBuilder = new SqlCommandBuilder(adapter);
+        try
+        {
+            adapter.Update(dataset);
+
+        }
+        catch (Exception ex)
+        {
+
+            MessageBox.Show(ex.Message);
+        }
+        
     }
 }

@@ -19,6 +19,7 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -40,6 +41,14 @@
                     Grid.Row="2"
                     Content="Add"
                     Click="Add_Btn_Click">
+            </Button>
+
+
+
+            <Button x:Name="Update_btn"
+                    Grid.Row="3"
+                    Content="update"
+                    Click="Update_btn_Click">
             </Button>
         </Grid>
 
