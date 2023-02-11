@@ -308,4 +308,26 @@ public partial class MainWindow : Window
         }
 
     }
+
+    private async void Delete_btn_Click(object sender, RoutedEventArgs e)
+    {
+        DataRowView rowView = Gridviev1.SelectedItem as DataRowView;
+        if (rowView != null)
+        {
+            DataRow row = rowView.Row;
+            string Id = row[0].ToString();
+
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                await conn.OpenAsync();
+                SqlCommand cmd = new SqlCommand("DELETE FROM Products WHERE Id = @Id", conn);
+                cmd.Parameters.AddWithValue("@Id", Id);
+                int result = await cmd.ExecuteNonQueryAsync();
+                if (result > 0)
+                {
+                    row.Delete();
+                }
+            }
+        }
+    }
 }
