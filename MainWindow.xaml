@@ -1,4 +1,5 @@
 ﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,58 +9,65 @@
         Title="MainWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition Width="350"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+           
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
 
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
 
-            <ComboBox Name="category_Cmbx"
-                      Margin="22"
+        <TextBox Grid.Row="0"
+                x:Name="search_TextBox"
+                TextChanged="Search_TextBox_TextChanged"
+                materialDesign:HintAssist.Hint="Search Product"
+                 Background="Azure"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" />
+
+
+
+        <ComboBox     Grid.Row="1"
+                      Name="category_Cmbx"
                       PreviewMouseDown="category_Cmbx_PreviewMouseDown"
-                      SelectionChanged="category_Cmbx_SelectionChanged">
-            </ComboBox>
+                      SelectionChanged="category_Cmbx_SelectionChanged"
+                materialDesign:HintAssist.Hint="(large float hint)"
+                materialDesign:HintAssist.FloatingScale="1.5"
+                materialDesign:HintAssist.FloatingOffset="0, -24"
+                MinWidth="72"
+                ItemsSource="{Binding LongIntegerList}"
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
 
-            <TextBox Grid.Row="1"
-                       x:Name="search_TextBox"
-                       TextChanged="Search_TextBox_TextChanged"
-                       Margin="22"
-                       Background="Azure"
-                       Foreground="Black">
-            </TextBox>
 
-            <Button x:Name="Add_Btn"
+       
+
+        <Button x:Name="Add_Btn"
                     Grid.Row="2"
                     Content="Add"
                     Click="Add_Btn_Click">
-            </Button>
+        </Button>
 
 
 
-            <Button x:Name="Update_btn"
+        <Button x:Name="Update_btn"
                     Grid.Row="3"
                     Content="update"
                     Click="Update_btn_Click">
-            </Button>
-        </Grid>
+        </Button>
 
 
-        <DataGrid Grid.Column="1"
+
+        <DataGrid Grid.Row="4"
                   x:Name="Gridviev1"
-                  Margin="22,22,10,22"
+                  Margin="22,22,10,10"
                   Background="Beige"
                   Foreground="Black"
-                  MouseDoubleClick="Gridviev1_MouseDoubleClick">
+                  MouseDoubleClick="Gridviev1_MouseDoubleClick" Grid.RowSpan="2">
         </DataGrid>
+
 
     </Grid>
 </Window>

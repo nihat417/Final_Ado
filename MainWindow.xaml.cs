@@ -16,7 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+//using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WpfApp1;
 
@@ -98,8 +98,8 @@ public partial class MainWindow : Window
                 }
             } while (reader.NextResult());
 
-            Gridviev1.ItemsSource = null;
-            Gridviev1.ItemsSource = table.AsDataView();
+           Gridviev1.ItemsSource = null;
+           Gridviev1.ItemsSource = table.AsDataView();
             
         }
         catch (Exception ex)
@@ -156,7 +156,7 @@ public partial class MainWindow : Window
 
     private async void category_Cmbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Gridviev1.ItemsSource=null;
+        //Gridviev1.ItemsSource=null;
         try
         {
             await conn?.OpenAsync();
@@ -195,7 +195,7 @@ public partial class MainWindow : Window
                     table.Rows.Add(row);
                 }
             } while (reader.NextResult());
-            //Gridviev1.ItemsSource = null;
+            Gridviev1.ItemsSource = null;
             Gridviev1.ItemsSource=table.AsDataView();
             
         }
@@ -269,53 +269,43 @@ public partial class MainWindow : Window
         
         SqlCommand updateCM = new SqlCommand()
         {
-            //CommandText = "Update Products SET Name=@Name WHERE Name=@Name",
+            CommandText = "usp_UpdateProducts",
             Connection = conn,
-            //CommandType = CommandType.StoredProcedure,
+            CommandType = CommandType.StoredProcedure,
         };
         
 
-
-        
-
-        //updateCM.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int));
-        //updateCM.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar));
+        updateCM.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int));
+        updateCM.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar));
         //updateCM.Parameters.Add(new SqlParameter("@CategoryId", SqlDbType.Int));
-        //updateCM.Parameters.Add(new SqlParameter("@Price", SqlDbType.Money));
-        //updateCM.Parameters.Add(new SqlParameter("@Quantity", SqlDbType.SmallInt));
+        updateCM.Parameters.Add(new SqlParameter("@Price", SqlDbType.Money));
+        updateCM.Parameters.Add(new SqlParameter("@Quantity", SqlDbType.SmallInt));
         //updateCM.Parameters.Add(new SqlParameter("@RatingId", SqlDbType.Int));
 
 
-        //updateCM.Parameters["@Id"].SourceVersion = DataRowVersion.Original;
-        //updateCM.Parameters["@Id"].SourceColumn = "Id";
-        //
-        //updateCM.Parameters["@Name"].SourceVersion = DataRowVersion.Current;
-        //updateCM.Parameters["@Name"].SourceColumn = "Name";
+        updateCM.Parameters["@Id"].SourceVersion = DataRowVersion.Original;
+        updateCM.Parameters["@Id"].SourceColumn = "Id";
 
-        //updateCM.Parameters["@CategoryId"].SourceVersion = DataRowVersion.Current;
-        //updateCM.Parameters["@CategoryId"].SourceColumn = "CategoryId";
+        updateCM.Parameters["@Name"].SourceVersion = DataRowVersion.Current;
+        updateCM.Parameters["@Name"].SourceColumn = "Name";
 
-        //updateCM.Parameters["@Price"].SourceVersion = DataRowVersion.Current;
-        //updateCM.Parameters["@Price"].SourceColumn = "Price";
-        //
-        //updateCM.Parameters["@Quantity"].SourceVersion = DataRowVersion.Current;
-        //updateCM.Parameters["@Quantity"].SourceColumn = "Quantity";
+        updateCM.Parameters["@Price"].SourceVersion = DataRowVersion.Current;
+        updateCM.Parameters["@Price"].SourceColumn = "Price";
 
-        //updateCM.Parameters["@RatingId"].SourceVersion = DataRowVersion.Current;
-        //updateCM.Parameters["@RatingId"].SourceColumn = "RatingId";
+        updateCM.Parameters["@Quantity"].SourceVersion = DataRowVersion.Current;
+        updateCM.Parameters["@Quantity"].SourceColumn = "Quantity";
+
 
         adapter.UpdateCommand = updateCM;
-        SqlCommandBuilder updateCMBuilder = new SqlCommandBuilder(adapter);
         try
         {
             adapter.Update(dataset);
 
         }
-        catch (Exception ex)
+        catch (SqlException ex)
         {
-
             MessageBox.Show(ex.Message);
         }
-        
+
     }
 }
