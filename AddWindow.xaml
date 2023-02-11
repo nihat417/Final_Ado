@@ -1,4 +1,5 @@
 ﻿<Window x:Class="WpfApp1.AddWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,11 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="45"/>
+
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -27,110 +24,132 @@
         </Label>
 
 
-        <Label Grid.Row="1"
-               Content="Name"
-               FontSize="25"
-               FontWeight="Bold"
-               HorizontalAlignment="Left">
-        </Label>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="185"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-        <TextBox Grid.Row="1"
-                 x:Name="Nametxt"
-                 Height="25"
-                 Width="265"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center">
-        </TextBox>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
 
 
+                <Label Grid.Row="0"
+                       Content="Name"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Left">
+                </Label>
 
-        <Label Grid.Row="2"
+                <Label Grid.Row="1"
                Content="Category"
                FontSize="25"
                FontWeight="Bold"
                HorizontalAlignment="Left">
-        </Label>
+                </Label>
 
-        <TextBox Grid.Row="2"
-                 x:Name="Categorytxt"
-                 Height="25"
-                 Width="265"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center">
-        </TextBox>
-
-
-        <Label Grid.Row="3"
+                <Label Grid.Row="2"
                Content="Price"
                FontSize="25"
                FontWeight="Bold"
                HorizontalAlignment="Left">
-        </Label>
-
-        <TextBox Grid.Row="3"
-                 x:Name="Pricetxt"
-                 Height="25"
-                 Width="265"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center">
-        </TextBox>
+                </Label>
 
 
-
-
-        <Label Grid.Row="4"
+                <Label Grid.Row="3"
                Content="Quantity"
                FontSize="25"
                FontWeight="Bold"
                HorizontalAlignment="Left">
-        </Label>
-
-        <TextBox Grid.Row="4"
-                 x:Name="Quantitytxt"
-                 Height="25"
-                 Width="265"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center">
-        </TextBox>
+                </Label>
 
 
-
-
-        <Label Grid.Row="5"
+                <Label Grid.Row="4"
                Content="Raiting"
                FontSize="25"
                FontWeight="Bold"
                HorizontalAlignment="Left">
-        </Label>
+                </Label>
+            </Grid>
 
-        <TextBox Grid.Row="5"
-                 x:Name="Raitingtxt"
-                 Height="25"
-                 Width="265"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center">
-        </TextBox>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="35"/>
+                    
+                </Grid.RowDefinitions>
 
 
+                <TextBox Grid.Row="0"
+                          x:Name="Nametxt"
+                    materialDesign:HintAssist.Hint="Name"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Center" />
 
-        <Button Grid.Row="6"
+                <TextBox Grid.Row="1"
+                         x:Name="Categorytxt"
+                    materialDesign:HintAssist.Hint="Category"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Center" />
+
+                <TextBox Grid.Row="2"
+                         x:Name="Pricetxt"
+                    materialDesign:HintAssist.Hint="price"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Center" />
+
+                <TextBox Grid.Row="3"
+                           x:Name="Quantitytxt"
+                    materialDesign:HintAssist.Hint="Quantity"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Center" />
+
+                <TextBox Grid.Row="4"
+                              x:Name="Raitingtxt"
+                    materialDesign:HintAssist.Hint="Raiting"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Center" />
+
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Button Grid.Column="0"
                 Content="Add"
                 FontSize="22"
-                Height="35"
-                Width="50"
+             
                 Click="Button_Click">
-        </Button>
+                    </Button>
 
 
-        <Button Grid.Row="6"
+                    <Button Grid.Column="1"
                 Content="Cancel"
                 x:Name="CancelBtn"
                 FontSize="22"
-                Height="35"
-                Width="50"
-                HorizontalAlignment="Left"
                 Click="CancelButton_Click">
-        </Button>
+                    </Button>
+                </Grid>
+                
+                
+            </Grid>
+
+        </Grid>
+            
+
 
     </Grid>
 </Window>
