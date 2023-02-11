@@ -20,7 +20,9 @@ namespace WpfApp1;
 public partial class InfoWindow : Window
 {
     public object _selectedItem { get; set; }
+    public object _selectedItem1 { get; set; }
     public object _selectedItem2 { get; set; }
+    public object _selectedItem3 { get; set; }
 
     public InfoWindow()
     {

@@ -1,26 +1,121 @@
 ﻿<Window x:Class="WpfApp1.InfoWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="InfoWindow" Height="450" Width="800">
+        Title="InfoWindow" Height="350" Width="550">
     <Grid>
-        <TextBlock x:Name="txtbx1"
-                   Margin="150"
-                 Background="AliceBlue"
-                 Foreground="Black"
-                 FontSize="22"
-                 Text="{Binding _selectedItem}">
-        </TextBlock>
-
-        <TextBlock x:Name="txtbx2"
-                   Text="{Binding _selectedItem2}"
-                   Width="195"
-                   Height="40" Margin="209,316,516,78">
-            
-        </TextBlock>
         
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0"
+               Content="Infromation Menu"
+               FontSize="45"
+               FontWeight="Bold"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Center"></Label>
+
+
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="185"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+
+
+                <Label Grid.Row="0"
+                       Content="Id"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Left">
+                </Label>
+
+                <Label Grid.Row="1"
+               Content="Name"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+                </Label>
+
+                <Label Grid.Row="2"
+               Content="Price"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+                </Label>
+
+
+                <Label Grid.Row="3"
+               Content="Quantity"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+                </Label>
+
+
+                <Label Grid.Row="4"
+               Content="Raiting"
+               FontSize="25"
+               FontWeight="Bold"
+               HorizontalAlignment="Left">
+                </Label>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Row="0"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Center"
+                          Text="{Binding _selectedItem}"/>
+
+                <TextBox Grid.Row="1"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Center"
+                          Text="{Binding _selectedItem1}"/>
+
+                <TextBox Grid.Row="2"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Center" 
+                          Text="{Binding _selectedItem2}"/>
+
+                <TextBox Grid.Row="3"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Center"
+                          Text="{Binding _selectedItem3}"/>
+
+
+
+            </Grid>
+        </Grid>
+
+
+
+
+
+
     </Grid>
 </Window>

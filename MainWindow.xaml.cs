@@ -248,19 +248,24 @@ public partial class MainWindow : Window
         if (selectedItem != null)
         {
             var rowView = selectedItem as DataRowView;
-            var data = rowView["Name"];
+            var data = rowView["Id"];
+            var data1 = rowView["Name"];
             var data2 = rowView["Price"];
-
+            var data3 = rowView["Quantity"];
+           
             //MessageBox.Show(data.ToString());
 
-            OpenInfoWindow(data, data2);
+            OpenInfoWindow(data,data1, data2, data3);
         }
     }
-    private void OpenInfoWindow(object data,object data2)
+    private void OpenInfoWindow(object data, object data1, object data2, object data3)
     {
         InfoWindow infoWindow = new InfoWindow();
         infoWindow._selectedItem = data;
+        infoWindow._selectedItem1 = data1;
         infoWindow._selectedItem2 = data2;
+        infoWindow._selectedItem3 = data3;
+        
         infoWindow.ShowDialog();
     }
 
